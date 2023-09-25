@@ -1,9 +1,4 @@
-.container-of-page h2{
 
-}
-.wholeCard{
-   
-}
 .container-of-page{
 padding: 30px;
 
@@ -43,7 +38,7 @@ padding: 30px;
     /* margin-top: 12px; */
     box-sizing: border-box;
     overflow: hidden;
-   
+
     padding-bottom: 13px;
     padding-top: 3px
     /* border-right: 1px solid black; */
@@ -121,12 +116,12 @@ padding: 30px;
     background: white;
     border: none;
     cursor: pointer;
-    
+
 }
 .product-wishlist:hover{
     background-color: white;
     color: red;
     font-size: larger;
     border-bottom: 2px solid black;
-    
+
 }

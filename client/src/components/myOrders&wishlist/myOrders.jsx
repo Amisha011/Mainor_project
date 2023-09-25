@@ -5,13 +5,11 @@ import "../common-products-css/commonProducts.css"
 const token = localStorage.getItem("token")
 
 const MyOrders = () => {
-    console.log("hello")
+
     const [myOrdersData, setMyOrdersData] = useState([])
     const orders = async () => {
-        const response = await axios.get(`http://localhost:8001/api/orders/myOrders`, { headers: { "Authorization": `Bearer ${token}` } })
-        console.log("response of ", response);
+        const response = await axios.get(`${process.env.REACT_APP_URL}/api/orders/myOrders`, { headers: { "Authorization": `Bearer ${token}` } })
         const data = response.data
-        console.log("data of orders", data)
         setMyOrdersData(data);
     }
     useEffect(() => {

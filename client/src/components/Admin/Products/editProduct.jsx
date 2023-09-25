@@ -23,18 +23,17 @@ const EditProduct = ({ location }) => {
     };
 
     const updateProduct = async () => {
-        console.log(productFormData);
-        console.log(productId);
+
         try {
-            const response = await axios.put(`http://localhost:8001/api/product/updateProduct/${product._id}`, productFormData);
+            const response = await axios.put(`/api/product/updateProduct/${product._id}`, productFormData);
             toast.success("Successfully Updated product !!");
         } catch (error) {
-            console.log("error", error.response);
+
             toast.error("error occured in editing product details")
         }
     }
     useEffect(() => {
-        console.log("hello")
+
     }, [])
 
     return (

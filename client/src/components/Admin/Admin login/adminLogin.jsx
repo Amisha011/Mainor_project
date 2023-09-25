@@ -12,7 +12,7 @@ const AdminLogin = (props) => {
     const [formdata1, setFormdata1] = useState({
         email: "",
         password: "",
-    
+
     });
     const changeFormData1 = (e) => {
         const name = e.target.name;
@@ -22,14 +22,13 @@ const AdminLogin = (props) => {
      const signIn = async () => {
         setLoader1(true)
         try {
-            console.log("data", formdata1);
-            const response1 = await axios.post("http://localhost:8001/api/user/login", formdata1);
-            console.log("response 1", response1);
+
+            const response1 = await axios.post(`${process.env.REACT_APP_URL}/api/user/login`, formdata1);
+
             const userType = response1.data.user.userType;
-            console.log(userType, "user type")
+
             const admin = response1.data.user
 
-            console.log('What is the usertype : ', userType) ;
             if (userType === "admin") {
                 toast.success("Successfully logged in !!!");
              history.push("/Admin/home")
@@ -47,7 +46,7 @@ const AdminLogin = (props) => {
             toast.success("Successfully logged in");
         } catch (error) {
             setLoader1(false)
-            console.log("error", error)
+
             toast.error("error in logging in")
         }
     }

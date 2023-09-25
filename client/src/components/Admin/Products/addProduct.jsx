@@ -30,14 +30,14 @@ const Product = () => {
     //post api for adding product in table
 
     const addProduct = async () => {
-        console.log("heyy")
+
         try {
-            console.log("productFormData", productFormData);
-            const response = await axios.post("http://localhost:8001/api/product/addProduct", productFormData)
-            console.log("response :", response);
+
+            const response = await axios.post(`${process.env.REACT_APP_URL}/api/product/addProduct`, productFormData)
+
             toast.success("Successfully Added product");
         } catch (error) {
-            console.log("error", error);
+
             toast.error("Failed in adding product");
         }
     }
@@ -53,7 +53,7 @@ const Product = () => {
             body: data
         })
         const file = await res.json();
-        console.log(file);
+
         return file.secure_url;
         // setImagestate(file.secure_url)
 
@@ -83,7 +83,7 @@ const Product = () => {
                     onChange={async (e) => {
                         const url = await uploadImage(e)
                         setProductFormData({ ...productFormData, ["image"]: url });
-                        console.log("url", url);
+
 
                     }}></input>
 

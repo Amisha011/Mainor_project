@@ -9,10 +9,10 @@ const token = localStorage.getItem("token")
 const Mywishlists = () => {
     const [myWishlistData, setMyWishlistData] = useState([])
     const wishlists = async () => {
-        const response = await axios.get(`http://localhost:8001/api/wishlist/getMyWishlist`, { headers: { "Authorization": `Bearer ${token}` } })
-        console.log("response of ", response);
+        const response = await axios.get(`${process.env.REACT_APP_URL}/api/wishlist/getMyWishlist`, { headers: { "Authorization": `Bearer ${token}` } })
+
         const data = response.data
-        console.log("data", data)
+
         setMyWishlistData(data);
     }
     useEffect(() => {

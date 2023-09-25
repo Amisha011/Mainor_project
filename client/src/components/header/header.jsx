@@ -13,8 +13,7 @@ const Header = () => {
     const userType = localStorage.getItem("userType")
     const loggedIn = localStorage.getItem('isLoggedIn') ;
 
-    console.log('Here is the is logged in : ' ,loggedIn) ;
-    
+
     const clearLocalStorage = () => {
         localStorage.clear();
         if (userType === "user") {
@@ -23,10 +22,10 @@ const Header = () => {
     }
 
     useEffect(() => {
-        console.log("state changed") ;
+
         setIsLoggedIn(loggedIn) ;
     }, [localStorage.getItem('isLoggedIn')]) ;
-    
+
     return (
         <div>
             <header className="headerOfBook">
@@ -56,7 +55,7 @@ const Header = () => {
                         <NavLink to="/myWishlist">Wishlist</NavLink>
                     </div>
                     }
-                    {console.log('consoling isLoggedInt : ', isLoggedIn)}
+
                     {isLoggedIn == 'true' ? (<div className="actions" >
                         <i class="fas fa-sign-in-alt"></i>
                         <NavLink to="/Login" onClick={() => { clearLocalStorage(); setIsLoggedIn(prevValue => !prevValue) }}>LogOut</NavLink>

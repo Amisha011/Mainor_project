@@ -13,7 +13,7 @@ const Profile = () => {
     // Add image logic here
     const user_string = localStorage.getItem("user");
     const user = JSON.parse(user_string);
-    console.log(user);
+
     const [userData, setUserdata] = useState({
         name: user.name,
         email: user.email,
@@ -30,16 +30,16 @@ const Profile = () => {
 
     const updateUser = async () => {
         try {
-            const response = await axios.put("http://localhost:8001/api/user/updateUser", userData, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
-            console.log("response of update api", response)
+            const response = await axios.put(`${process.env.REACT_APP_URL}/api/user/updateUser`, userData, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+
             toast.success("Updated Profile")
         } catch (error) {
-            console.log("error at updating user", error)
+
             toast.error("Error occured in updating profile !!")
         }
     }
 
-    console.log("user", user)
+
     // const [imgstate, setImagestate] = useState(user.image)
     const token = localStorage.getItem("token");
 
@@ -56,9 +56,9 @@ const Profile = () => {
             body: data
         })
         const file = await res.json();
-        console.log("file", file);
-        const user_update_response = await axios.put("http://localhost:8001/api/user/updateUser", { image: file.secure_url }, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
-        console.log('updated_user_json : ', user_update_response);
+
+        const user_update_response = await axios.put(`${process.env.REACT_APP_URL}/api/user/updateUser`, { image: file.secure_url }, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+
         localStorage.setItem('user', JSON.stringify(user_update_response.data));
         setLoading(false)
         setLoader(false)
@@ -108,7 +108,7 @@ const Profile = () => {
                             Choose your Photo
                         </label>
                     </div>
-                  
+
                 </div>
                 <div className="detailsss">
                     <div className="detailss1">

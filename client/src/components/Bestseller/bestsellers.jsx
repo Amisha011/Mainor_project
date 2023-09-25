@@ -9,8 +9,8 @@ const Bestseller = () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') ;
     const history = useHistory() ;
     const getBestSeller = async () => {
-        const response = await axios.get("http://Localhost:8001/api/product/getAllProducts");
-        console.log("response of bestseller", response);
+        const response = await axios.get(`${process.env.REACT_APP_URL}/api/product/getAllProducts`);
+
         const arrayOfData = []
         for (let book of response.data) {
             if (book.bookType === "bestSellers") {

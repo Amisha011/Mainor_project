@@ -9,7 +9,7 @@ const FeaturedAuthors = () => {
     const arrayOfData = [];
     const getFeaturedAuthors = async () => {
         const response = await axios.get("")
-        console.log("response", response);
+
         for(let book of response.data)
         {
             if(book.bookType==="featuredAuthors")
@@ -27,7 +27,7 @@ const FeaturedAuthors = () => {
         <div className="featuredAuthor">
             <h1>Featured Authors</h1>
 
-           
+
             <div className="authorDetails">
                 <div>
                     <img src={authorImg2} alt="bookstore"></img>

@@ -11,17 +11,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import Bestsellers from "../components/Bestseller/bestsellers";
 import NewArrival from "../components/newArrivals/newArrival";
 import TextBook from "../components/textBooks/textBook";
-import AdminHomePage from "../Admin/Admin-homePage/adminHomePage"
-import AdminLogin from "../Admin/Admin login/adminLogin";
+import AdminHomePage from "./Admin/Admin-homePage/adminHomePage"
+import AdminLogin from "./Admin/Admin login/adminLogin";
 import FeaturedAuthor from "../components/Featured Authors/featuredAuthors"
 import Profile from "./customer-profile/profile"
-import ProductTable from "../Admin/Products/productTable"
-import GetAllUsers from "../Admin/getAllUsers/getUsers";
-import AddProduct from "../Admin/Products/addProduct";
-import EditProduct from "../Admin/Products/editProduct"
+import ProductTable from "./Admin/Products/productTable"
+import GetAllUsers from "./Admin/getAllUsers/getUsers";
+import AddProduct from "./Admin/Products/addProduct";
+import EditProduct from "./Admin/Products/editProduct"
 import MyOrders from "../components/myOrders&wishlist/myOrders";
 import MyWishlist from "../components/myOrders&wishlist/myWishlist"
-import GetOrdersList from "../Admin/getAllOrders/getAllOrders"
+import GetOrdersList from "./Admin/getAllOrders/getAllOrders"
 
 function App() {
     const history = useHistory();
@@ -44,7 +44,7 @@ function App() {
             <ToastContainer />
             <Header />
             {/* <Navbar /> */}
-            
+
                 <Switch>
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/Register" component={SignUp} />

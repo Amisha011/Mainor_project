@@ -10,8 +10,7 @@ const TextBook = () => {
     const history = useHistory() ;
     const isLoggedIn = localStorage.getItem('isLoggedIn') ;
     const getTextBooks = async () => {
-        const response = await axios.get("http://Localhost:8001/api/product/getAllProducts");
-        console.log("response", response);
+        const response = await axios.get(`${process.env.REACT_APP_URL}/api/product/getAllProducts`);
         const arrayOfData = []
         for (let book of response.data) {
             if (book.bookType === "textBooks") {

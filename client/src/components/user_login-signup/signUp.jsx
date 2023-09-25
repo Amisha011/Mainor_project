@@ -17,7 +17,7 @@ const SignUp = () => {
             password: "",
         }
     )
-    //the details will change whenever user will start typing 
+    //the details will change whenever user will start typing
     const changeFormData = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -27,10 +27,10 @@ const SignUp = () => {
     const addUser = async () => {
         setLoader(true);
         try {
-            console.log("formdata", formData)
-            const response = await axios.post("http://localhost:8001/api/user/signUp", formData);
+
+            const response = await axios.post(`${process.env.REACT_APP_URL}/api/user/signUp`, formData);
             const user = response.data.user;
-            console.log('login response : ', response);
+
             localStorage.setItem('user', JSON.stringify(user));
             const userType = response.data.user.userType;
 
@@ -49,7 +49,7 @@ const SignUp = () => {
             //toast.success("Successfully signed up");
         } catch (error) {
             setLoader(false)
-            console.log("error", error)
+
             toast.error("error in signing up")
         }
     }

@@ -7,8 +7,7 @@ const GetAllUser = () => {
     const [state, setState] = useState([])
 
     const getUsers = async () => {
-        const response = await axios.get("http://localhost:8001/api/user/getAllUsers");
-        console.log("res", response);
+        const response = await axios.get(`${process.env.REACT_APP_URL}/api/user/getAllUsers`);
         var users = response.data;
         setState(users);
     }

@@ -6,23 +6,23 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 
 const ProductTable = () => {
-   
+
     const [state, setState] = useState([])
     const history = useHistory() ;
     const products = async() => {
-        console.log("jii")
-        const response = await axios.get("http://Localhost:8001/api/product/getAllProducts");
-        console.log("response", response);
+
+        const response = await axios.get(`${process.env.REACT_APP_URL}/api/product/getAllProducts`);
+
         const products = response.data
         setState(products);
     }
     const deleteProduct = async (_id) => {
         try {
-            const response = await axios.delete(`http://localhost:8001/api/product/deleteProduct/${_id}`)
-            console.log("response: ", response)
+            const response = await axios.delete(`${process.env.REACT_APP_URL}/api/product/deleteProduct/${_id}`)
+
             toast.success("deleted product succesfully !!")
         } catch (error) {
-            console.log("error", error.response);
+
         }
     }
 
@@ -63,7 +63,7 @@ const ProductTable = () => {
                                 <td><i  onClick={() => {
                                     history.push({
                                         pathname:"/Admin/home/productsList/editProduct",
-                                        state:data 
+                                        state:data
                                     }) ;
                                 }} class="far fa-edit" ></i></td>
                                 <td ><i onClick={()=>{deleteProduct(data._id)}} class="fas fa-trash-alt"></i></td>
